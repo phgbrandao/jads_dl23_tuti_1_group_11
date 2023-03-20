@@ -1,0 +1,1902 @@
+03/17/2023 01:00:38 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+Some weights of the model checkpoint at microsoft/graphcodebert-base were not used when initializing RobertaForSequenceClassification: ['lm_head.decoder.weight', 'lm_head.decoder.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/graphcodebert-base and are newly initialized: ['classifier.out_proj.weight', 'classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+03/17/2023 01:00:41 - INFO - __main__ -   Training/evaluation parameters Namespace(train_data_file='../dataset/train.jsonl', output_dir='./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3', eval_data_file='../dataset/valid.jsonl', test_data_file='../dataset/test.jsonl', model_type='roberta', model_name_or_path='microsoft/graphcodebert-base', mlm=False, mlm_probability=0.15, config_name='', tokenizer_name='microsoft/graphcodebert-base', cache_dir='', block_size=400, do_train=True, do_eval=True, do_test=True, evaluate_during_training=True, do_lower_case=False, train_batch_size=128, eval_batch_size=128, gradient_accumulation_steps=1, learning_rate=0.0005, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=1.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, save_total_limit=None, eval_all_checkpoints=False, no_cuda=False, overwrite_output_dir=False, overwrite_cache=False, seed=123456, epoch=100, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', model='GNNs', hidden_size=128, feature_dim_size=768, num_GNN_layers=2, num_classes=2, gnn='ReGCN', format='idx', window_size=5, remove_residual=False, att_op='mul', training_percent=1.0, alpha_weight=1.0, n_gpu=0, device=device(type='cpu'), per_gpu_train_batch_size=128, per_gpu_eval_batch_size=128, start_epoch=0, start_step=0)
+03/17/2023 01:01:25 - INFO - __main__ -   *** Total Sample ***
+03/17/2023 01:01:25 - INFO - __main__ -   	Total: 21854	selected: 21854	percent: 1.0	
+03/17/2023 01:01:25 - INFO - __main__ -   *** Sample ***
+03/17/2023 01:01:25 - INFO - __main__ -   Total sample
+03/17/2023 01:01:25 - INFO - __main__ -   idx: 0
+03/17/2023 01:01:25 - INFO - __main__ -   label: 0
+03/17/2023 01:01:25 - INFO - __main__ -   input_tokens: ['<s>', 'static', '_av', '_', 'cold', '_int', '_v', 'd', 'ade', 'c', '_', 'init', '(', 'AV', 'Cod', 'ec', 'Context', '_*', 'av', 'ctx', ')', '_{', '_V', 'D', 'AD', 'ec', 'oder', 'Context', '_*', 'ctx', '_=', '_av', 'ctx', '->', 'priv', '_', 'data', ';', '_struct', '_v', 'da', '_', 'context', '_*', 'v', 'da', '_', 'ctx', '_=', '_&', 'ctx', '->', 'v', 'da', '_', 'ctx', ';', '_OS', 'Status', '_status', ';', '_int', '_ret', ';', '_c', 'tx', '->', 'h', '264', '_', 'initialized', '_=', '_0', ';', '_/*', '_init', '_p', 'ix', '_', 'fm', 'ts', '_of', '_codec', '_*/', '_if', '_(!', 'ff', '_', 'h', '264', '_', 'v', 'da', '_', 'dec', 'oder', '.', 'p', 'ix', '_', 'fm', 'ts', ')', '_{', '_if', '_(', 'k', 'C', 'FC', 'ore', 'Found', 'ation', 'Version', 'Number', '_<', '_k', 'C', 'FC', 'ore', 'Found', 'ation', 'Version', 'Number', '10', '_', '7', ')', '_ff', '_', 'h', '264', '_', 'v', 'da', '_', 'dec', 'oder', '.', 'p', 'ix', '_', 'fm', 'ts', '_=', '_v', 'da', '_', 'p', 'ix', 'fm', 'ts', '_', 'pri', 'or', '_', '10', '_', '7', ';', '_else', '_ff', '_', 'h', '264', '_', 'v', 'da', '_', 'dec', 'oder', '.', 'p', 'ix', '_', 'fm', 'ts', '_=', '_v', 'da', '_', 'p', 'ix', 'fm', 'ts', ';', '_}', '_/*', '_init', '_v', 'da', '_*/', '_mem', 'set', '(', 'v', 'da', '_', 'ctx', ',', '_0', ',', '_sizeof', '(', 'struct', '_v', 'da', '_', 'context', '));', '_v', 'da', '_', 'ctx', '->', 'width', '_=', '_av', 'ctx', '->', 'width', ';', '_v', 'da', '_', 'ctx', '->', 'height', '_=', '_av', 'ctx', '->', 'height', ';', '_v', 'da', '_', 'ctx', '->', 'format', '_=', "_'", 'av', 'c', '1', "';", '_v', 'da', '_', 'ctx', '->', 'use', '_', 'sync', '_', 'dec', 'oding', '_=', '_1', ';', '_v', 'da', '_', 'ctx', '->', 'use', '_', 'ref', '_', 'buffer', '_=', '_1', ';', '_c', 'tx', '->', 'p', 'ix', '_', 'f', 'mt', '_=', '_av', 'ctx', '->', 'get', '_', 'format', '(', 'av', 'ctx', ',', '_av', 'ctx', '->', 'cod', 'ec', '->', 'p', 'ix', '_', 'fm', 'ts', ');', '_switch', '_(', 'ctx', '->', 'p', 'ix', '_', 'f', 'mt', ')', '_{', '_case', '_AV', '_', 'P', 'IX', '_', 'F', 'MT', '_', 'U', 'Y', 'V', 'Y', '422', ':', '_v', 'da', '_', 'ctx', '->', 'cv', '_', 'p', 'ix', '_', 'f', 'mt', '_', 'type', '_=', "_'", '2', 'v', 'uy', "';", '_break', ';', '_case', '_AV', '_', 'P', 'IX', '_', 'F', 'MT', '_', 'Y', 'U', 'Y', 'V', '422', ':', '_v', 'da', '_', 'ctx', '->', 'cv', '_', 'p', 'ix', '_', 'f', 'mt', '_', 'type', '_=', "_'", 'yu', 'vs', "';", '_break', ';', '_case', '_AV', '_', 'P', 'IX', '_', 'F', 'MT', '_', 'NV', '12', ':', '</s>']
+03/17/2023 01:01:25 - INFO - __main__ -   input_ids: 0 42653 6402 1215 33912 6979 748 417 1829 438 1215 25153 1640 10612 47436 3204 48522 1009 1469 49575 43 25522 468 495 2606 3204 15362 48522 1009 49575 5457 6402 49575 46613 25943 1215 23687 131 29916 748 6106 1215 46796 1009 705 6106 1215 49575 5457 359 49575 46613 705 6106 1215 49575 131 8192 47731 2194 131 6979 5494 131 740 43820 46613 298 29137 1215 49722 5457 321 131 48565 45511 181 3181 1215 40523 1872 9 45797 48404 114 48209 3145 1215 298 29137 1215 705 6106 1215 11127 15362 4 642 3181 1215 40523 1872 43 25522 114 36 330 347 5268 1688 29991 1258 47322 43623 28696 449 347 5268 1688 29991 1258 47322 43623 698 1215 406 43 48400 1215 298 29137 1215 705 6106 1215 11127 15362 4 642 3181 1215 40523 1872 5457 748 6106 1215 642 3181 40523 1872 1215 13718 368 1215 698 1215 406 131 1493 48400 1215 298 29137 1215 705 6106 1215 11127 15362 4 642 3181 1215 40523 1872 5457 748 6106 1215 642 3181 40523 1872 131 35524 48565 45511 748 6106 48404 26012 8738 1640 705 6106 1215 49575 6 321 6 49907 1640 25384 748 6106 1215 46796 48749 748 6106 1215 49575 46613 36097 5457 6402 49575 46613 36097 131 748 6106 1215 49575 46613 37009 5457 6402 49575 46613 37009 131 748 6106 1215 49575 46613 34609 5457 128 1469 438 134 23500 748 6106 1215 49575 46613 3698 1215 45176 1215 11127 19519 5457 112 131 748 6106 1215 49575 46613 3698 1215 13043 1215 47438 5457 112 131 740 43820 46613 642 3181 1215 506 16100 5457 6402 49575 46613 6460 1215 34609 1640 1469 49575 6 6402 49575 46613 29659 3204 46613 642 3181 1215 40523 1872 4397 5405 36 49575 46613 642 3181 1215 506 16100 43 25522 403 17307 1215 510 9482 1215 597 11674 1215 791 975 846 975 37319 35 748 6106 1215 49575 46613 38635 1215 642 3181 1215 506 16100 1215 12528 5457 128 176 705 5781 23500 1108 131 403 17307 1215 510 9482 1215 597 11674 1215 975 791 975 846 37319 35 748 6106 1215 49575 46613 38635 1215 642 3181 1215 506 16100 1215 12528 5457 128 29159 15597 23500 1108 131 403 17307 1215 510 9482 1215 597 11674 1215 31668 1092 35 2
+03/17/2023 01:01:25 - INFO - __main__ -   *** Sample ***
+03/17/2023 01:01:25 - INFO - __main__ -   Total sample
+03/17/2023 01:01:25 - INFO - __main__ -   idx: 1
+03/17/2023 01:01:25 - INFO - __main__ -   label: 0
+03/17/2023 01:01:25 - INFO - __main__ -   input_tokens: ['<s>', 'static', '_int', '_trans', 'code', '(', 'AV', 'Format', 'Context', '_**', 'output', '_', 'files', ',', '_int', '_n', 'b', '_', 'output', '_', 'files', ',', '_Input', 'File', '_*', 'input', '_', 'files', ',', '_int', '_n', 'b', '_', 'input', '_', 'files', ',', '_Stream', 'Map', '_*', 'stream', '_', 'maps', ',', '_int', '_n', 'b', '_', 'stream', '_', 'maps', ')', '_{', '_int', '_ret', '_=', '_0', ',', '_i', ',', '_j', ',', '_k', ',', '_n', ',', '_n', 'b', '_', 'ost', 'ream', 's', '_=', '_0', ',', '_step', ';', '_AV', 'Format', 'Context', '_*', 'is', ',', '_*', 'os', ';', '_AV', 'Cod', 'ec', 'Context', '_*', 'cod', 'ec', ',', '_*', 'ic', 'od', 'ec', ';', '_Output', 'Stream', '_*', 'ost', ',', '_**', 'ost', '_', 'table', '_=', '_NULL', ';', '_Input', 'Stream', '_*', 'ist', ';', '_char', '_error', '[', '1024', '];', '_int', '_key', ';', '_int', '_want', '_', 'sd', 'p', '_=', '_1', ';', '_uint', '8', '_', 't', '_no', '_', 'pack', 'et', '[', 'MAX', '_', 'FIL', 'ES', ']=', '{', '0', '};', '_int', '_no', '_', 'pack', 'et', '_', 'count', '=', '0', ';', '_int', '_n', 'b', '_', 'frame', '_', 'th', 'reshold', '[', 'AV', 'MED', 'IA', '_', 'TYPE', '_', 'NB', ']=', '{', '0', '};', '_int', '_n', 'b', '_', 'stream', 's', '[', 'AV', 'MED', 'IA', '_', 'TYPE', '_', 'NB', ']=', '{', '0', '};', '_if', '_(', 'rate', '_', 'em', 'u', ')', '_for', '_(', 'i', '_=', '_0', ';', '_i', '_<', '_n', 'b', '_', 'input', '_', 'stream', 's', ';', '_i', '++)', '_input', '_', 'stream', 's', '[', 'i', '].', 'start', '_=', '_av', '_', 'get', 'time', '();', '_/*', '_output', '_stream', '_init', '_*/', '_n', 'b', '_', 'ost', 'ream', 's', '_=', '_0', ';', '_for', '(', 'i', '=', '0', ';', 'i', '<', 'nb', '_', 'output', '_', 'files', ';', 'i', '++)', '_{', '_os', '_=', '_output', '_', 'files', '[', 'i', '];', '_if', '_(!', 'os', '->', 'nb', '_', 'stream', 's', '_&&', '_!', '(', 'os', '->', 'o', 'format', '->', 'flags', '_&', '_AV', 'F', 'MT', '_', 'N', 'OST', 'REAM', 'S', '))', '_{', '_av', '_', 'dump', '_', 'format', '(', 'output', '_', 'files', '[', 'i', '],', '_i', ',', '_output', '_', 'files', '[', 'i', ']', '->', 'filename', ',', '_1', ');', '_f', 'printf', '(', 'st', 'der', 'r', ',', '_"', 'Output', '_file', '_#', '%', 'd', '_does', '_not', '_contain', '_any', '_stream', '\\', 'n', '",', '_i', ');', '_ret', '_=', '_A', 'VER', 'ROR', '(', 'E', 'IN', 'VAL', ');', '_goto', '_fail', ';', '_}', '_n', 'b', '_', 'ost', 'ream', 's', '_+=', '_os', '->', 'nb', '_', 'stream', 's', ';', '_}', '_if', '_(', 'nb', '_', 'stream', '_', 'maps', '_>', '_0', '_&&', '_n', 'b', '_', 'stream', '_', 'maps', '_!=', '_n', 'b', '</s>']
+03/17/2023 01:01:25 - INFO - __main__ -   input_ids: 0 42653 6979 6214 20414 1640 10612 48587 48522 13540 46234 1215 42018 6 6979 295 428 1215 46234 1215 42018 6 41327 9966 1009 46797 1215 42018 6 6979 295 428 1215 46797 1215 42018 6 16183 41151 1009 8656 1215 44754 6 6979 295 428 1215 8656 1215 44754 43 25522 6979 5494 5457 321 6 939 6 1236 6 449 6 295 6 295 428 1215 2603 26930 29 5457 321 6 1149 131 17307 48587 48522 1009 354 6 1009 366 131 17307 47436 3204 48522 1009 29659 3204 6 1009 636 1630 3204 131 38252 36757 1009 2603 6 13540 2603 1215 14595 5457 48955 131 41327 36757 1009 661 131 16224 5849 10975 47477 44082 6979 762 131 6979 236 1215 28045 642 5457 112 131 49315 398 1215 90 117 1215 12486 594 10975 30187 1215 46008 1723 49659 45152 288 49423 6979 117 1215 12486 594 1215 11432 5214 288 131 6979 295 428 1215 26061 1215 212 45749 10975 10612 32653 2889 1215 48710 1215 20485 49659 45152 288 49423 6979 295 428 1215 8656 29 10975 10612 32653 2889 1215 48710 1215 20485 49659 45152 288 49423 114 36 7954 1215 991 257 43 13 36 118 5457 321 131 939 28696 295 428 1215 46797 1215 8656 29 131 939 49346 8135 1215 8656 29 10975 118 8174 13124 5457 6402 1215 6460 958 47006 48565 4195 4615 45511 48404 295 428 1215 2603 26930 29 5457 321 131 13 1640 118 5214 288 131 118 41552 40460 1215 46234 1215 42018 131 118 49346 25522 11988 5457 4195 1215 42018 10975 118 44082 114 48209 366 46613 40460 1215 8656 29 48200 27785 1640 366 46613 139 34609 46613 46760 359 17307 597 11674 1215 487 13556 28057 104 35122 25522 6402 1215 46593 1215 34609 1640 46234 1215 42018 10975 118 7479 939 6 4195 1215 42018 10975 118 742 46613 49451 6 112 4397 856 49775 1640 620 3624 338 6 22 48293 2870 849 207 417 473 45 5585 143 4615 37457 282 1297 939 4397 5494 5457 83 9847 45055 1640 717 2444 39766 4397 49325 5998 131 35524 295 428 1215 2603 26930 29 49371 11988 46613 40460 1215 8656 29 131 35524 114 36 40460 1215 8656 1215 44754 8061 321 48200 295 428 1215 8656 1215 44754 49333 295 428 2
+03/17/2023 01:01:25 - INFO - __main__ -   *** Sample ***
+03/17/2023 01:01:25 - INFO - __main__ -   Total sample
+03/17/2023 01:01:25 - INFO - __main__ -   idx: 2
+03/17/2023 01:01:25 - INFO - __main__ -   label: 0
+03/17/2023 01:01:25 - INFO - __main__ -   input_tokens: ['<s>', 'static', '_void', '_v', '4', 'l', '2', '_', 'free', '_', 'buffer', '(', 'void', '_*', 'op', 'aque', ',', '_uint', '8', '_', 't', '_*', 'un', 'used', ')', '_{', '_V', '4', 'L', '2', 'Buffer', '*', '_av', 'buf', '_=', '_opaque', ';', '_V', '4', 'L', '2', 'm', '2', 'm', 'Context', '_*', 's', '_=', '_buf', '_', 'to', '_', 'm', '2', 'm', 'ctx', '(', 'av', 'buf', ');', '_if', '_(', 'atomic', '_', 'f', 'etch', '_', 'sub', '(&', 'av', 'buf', '->', 'context', '_', 'ref', 'count', ',', '_1', ')', '_==', '_1', ')', '_{', '_atomic', '_', 'f', 'etch', '_', 'sub', '_', 'expl', 'icit', '(&', 's', '->', 'ref', 'count', ',', '_1', ',', '_memory', '_', 'order', '_', 'ac', 'q', '_', 'rel', ');', '_if', '_(', 's', '->', 're', 'init', ')', '_{', '_if', '_(!', 'atomic', '_', 'load', '(&', 's', '->', 'ref', 'count', '))', '_sem', '_', 'post', '(&', 's', '->', 'ref', 'sync', ');', '_}', '_else', '_if', '_(', 'av', 'buf', '->', 'context', '->', 'stream', 'on', ')', '_ff', '_', 'v', '4', 'l', '2', '_', 'buffer', '_', 'en', 'queue', '(', 'av', 'buf', ');', '_av', '_', 'buffer', '_', 'un', 'ref', '(&', 'av', 'buf', '->', 'context', '_', 'ref', ');', '_}', '_}', '</s>']
+03/17/2023 01:01:25 - INFO - __main__ -   input_ids: 0 42653 13842 748 306 462 176 1215 3743 1215 47438 1640 47908 1009 1517 35485 6 49315 398 1215 90 1009 879 6199 43 25522 468 306 574 176 49334 3226 6402 48939 5457 31861 131 468 306 574 176 119 176 119 48522 1009 29 5457 49125 1215 560 1215 119 176 119 49575 1640 1469 48939 4397 114 36 45826 1215 506 29094 1215 10936 49763 1469 48939 46613 46796 1215 13043 11432 6 112 43 45994 112 43 25522 21495 1215 506 29094 1215 10936 1215 23242 17022 49763 29 46613 13043 11432 6 112 6 3783 1215 10337 1215 1043 1343 1215 5982 4397 114 36 29 46613 241 25153 43 25522 114 48209 45826 1215 16204 49763 29 46613 13043 11432 35122 9031 1215 7049 49763 29 46613 13043 45176 4397 35524 1493 114 36 1469 48939 46613 46796 46613 8656 261 43 48400 1215 705 306 462 176 1215 47438 1215 225 48702 1640 1469 48939 4397 6402 1215 47438 1215 879 13043 49763 1469 48939 46613 46796 1215 13043 4397 35524 35524 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+03/17/2023 01:01:25 - INFO - __main__ -   ***** Running training *****
+03/17/2023 01:01:25 - INFO - __main__ -     Num examples = 21854
+03/17/2023 01:01:25 - INFO - __main__ -     Num Epochs = 100
+03/17/2023 01:01:25 - INFO - __main__ -     Instantaneous batch size per GPU = 128
+03/17/2023 01:01:25 - INFO - __main__ -     Total train batch size (w. parallel, distributed & accumulation) = 128
+03/17/2023 01:01:25 - INFO - __main__ -     Gradient Accumulation steps = 1
+03/17/2023 01:01:25 - INFO - __main__ -     Total optimization steps = 17100
+03/17/2023 01:08:46 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 01:08:46 - INFO - __main__ -     Num examples = 2732
+03/17/2023 01:08:46 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:09:44 - INFO - __main__ -     eval_loss = 0.6836
+03/17/2023 01:09:44 - INFO - __main__ -     eval_acc = 0.5655
+03/17/2023 01:09:44 - INFO - __main__ -     eval_TP = 0
+03/17/2023 01:09:44 - INFO - __main__ -     eval_FP = 0
+03/17/2023 01:09:44 - INFO - __main__ -     eval_TN = 1545
+03/17/2023 01:09:44 - INFO - __main__ -     eval_FN = 1187
+03/17/2023 01:09:44 - INFO - __main__ -     ********************
+03/17/2023 01:09:44 - INFO - __main__ -     Best acc:0.5655
+03/17/2023 01:09:44 - INFO - __main__ -     ********************
+03/17/2023 01:09:45 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:09:47 - INFO - __main__ -   epoch 0 loss 0.69042
+03/17/2023 01:16:26 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 01:16:26 - INFO - __main__ -     Num examples = 2732
+03/17/2023 01:16:26 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:17:23 - INFO - __main__ -     eval_loss = 0.6824
+03/17/2023 01:17:23 - INFO - __main__ -     eval_acc = 0.5666
+03/17/2023 01:17:23 - INFO - __main__ -     eval_TP = 7
+03/17/2023 01:17:23 - INFO - __main__ -     eval_FP = 4
+03/17/2023 01:17:23 - INFO - __main__ -     eval_TN = 1541
+03/17/2023 01:17:23 - INFO - __main__ -     eval_FN = 1180
+03/17/2023 01:17:23 - INFO - __main__ -     ********************
+03/17/2023 01:17:23 - INFO - __main__ -     Best acc:0.5666
+03/17/2023 01:17:23 - INFO - __main__ -     ********************
+03/17/2023 01:17:24 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:17:25 - INFO - __main__ -   epoch 1 loss 0.6877
+03/17/2023 01:24:06 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 01:24:06 - INFO - __main__ -     Num examples = 2732
+03/17/2023 01:24:06 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:25:03 - INFO - __main__ -     eval_loss = 0.6842
+03/17/2023 01:25:03 - INFO - __main__ -     eval_acc = 0.556
+03/17/2023 01:25:03 - INFO - __main__ -     eval_TP = 426
+03/17/2023 01:25:03 - INFO - __main__ -     eval_FP = 452
+03/17/2023 01:25:03 - INFO - __main__ -     eval_TN = 1093
+03/17/2023 01:25:03 - INFO - __main__ -     eval_FN = 761
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:25:05 - INFO - __main__ -   epoch 2 loss 0.68552
+03/17/2023 01:31:51 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 01:31:51 - INFO - __main__ -     Num examples = 2732
+03/17/2023 01:31:51 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:32:49 - INFO - __main__ -     eval_loss = 0.6817
+03/17/2023 01:32:49 - INFO - __main__ -     eval_acc = 0.5545
+03/17/2023 01:32:49 - INFO - __main__ -     eval_TP = 571
+03/17/2023 01:32:49 - INFO - __main__ -     eval_FP = 601
+03/17/2023 01:32:49 - INFO - __main__ -     eval_TN = 944
+03/17/2023 01:32:49 - INFO - __main__ -     eval_FN = 616
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:32:51 - INFO - __main__ -   epoch 3 loss 0.68084
+03/17/2023 01:39:32 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 01:39:32 - INFO - __main__ -     Num examples = 2732
+03/17/2023 01:39:32 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:40:29 - INFO - __main__ -     eval_loss = 0.6767
+03/17/2023 01:40:29 - INFO - __main__ -     eval_acc = 0.5798
+03/17/2023 01:40:29 - INFO - __main__ -     eval_TP = 682
+03/17/2023 01:40:29 - INFO - __main__ -     eval_FP = 643
+03/17/2023 01:40:29 - INFO - __main__ -     eval_TN = 902
+03/17/2023 01:40:29 - INFO - __main__ -     eval_FN = 505
+03/17/2023 01:40:29 - INFO - __main__ -     ********************
+03/17/2023 01:40:29 - INFO - __main__ -     Best acc:0.5798
+03/17/2023 01:40:29 - INFO - __main__ -     ********************
+03/17/2023 01:40:30 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:40:32 - INFO - __main__ -   epoch 4 loss 0.67592
+03/17/2023 01:47:14 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 01:47:14 - INFO - __main__ -     Num examples = 2732
+03/17/2023 01:47:14 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:48:12 - INFO - __main__ -     eval_loss = 0.6661
+03/17/2023 01:48:12 - INFO - __main__ -     eval_acc = 0.5824
+03/17/2023 01:48:12 - INFO - __main__ -     eval_TP = 584
+03/17/2023 01:48:12 - INFO - __main__ -     eval_FP = 538
+03/17/2023 01:48:12 - INFO - __main__ -     eval_TN = 1007
+03/17/2023 01:48:12 - INFO - __main__ -     eval_FN = 603
+03/17/2023 01:48:12 - INFO - __main__ -     ********************
+03/17/2023 01:48:12 - INFO - __main__ -     Best acc:0.5824
+03/17/2023 01:48:12 - INFO - __main__ -     ********************
+03/17/2023 01:48:13 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:48:14 - INFO - __main__ -   epoch 5 loss 0.67064
+03/17/2023 01:55:06 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 01:55:06 - INFO - __main__ -     Num examples = 2732
+03/17/2023 01:55:06 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:56:04 - INFO - __main__ -     eval_loss = 0.6524
+03/17/2023 01:56:04 - INFO - __main__ -     eval_acc = 0.5846
+03/17/2023 01:56:04 - INFO - __main__ -     eval_TP = 359
+03/17/2023 01:56:04 - INFO - __main__ -     eval_FP = 307
+03/17/2023 01:56:04 - INFO - __main__ -     eval_TN = 1238
+03/17/2023 01:56:04 - INFO - __main__ -     eval_FN = 828
+03/17/2023 01:56:04 - INFO - __main__ -     ********************
+03/17/2023 01:56:04 - INFO - __main__ -     Best acc:0.5846
+03/17/2023 01:56:04 - INFO - __main__ -     ********************
+03/17/2023 01:56:05 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 01:56:07 - INFO - __main__ -   epoch 6 loss 0.6633
+03/17/2023 02:03:03 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:03:03 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:03:03 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:04:00 - INFO - __main__ -     eval_loss = 0.6508
+03/17/2023 02:04:00 - INFO - __main__ -     eval_acc = 0.6061
+03/17/2023 02:04:00 - INFO - __main__ -     eval_TP = 756
+03/17/2023 02:04:00 - INFO - __main__ -     eval_FP = 645
+03/17/2023 02:04:00 - INFO - __main__ -     eval_TN = 900
+03/17/2023 02:04:00 - INFO - __main__ -     eval_FN = 431
+03/17/2023 02:04:00 - INFO - __main__ -     ********************
+03/17/2023 02:04:00 - INFO - __main__ -     Best acc:0.6061
+03/17/2023 02:04:00 - INFO - __main__ -     ********************
+03/17/2023 02:04:01 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:04:03 - INFO - __main__ -   epoch 7 loss 0.65698
+03/17/2023 02:10:58 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:10:58 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:10:58 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:11:56 - INFO - __main__ -     eval_loss = 0.6405
+03/17/2023 02:11:56 - INFO - __main__ -     eval_acc = 0.6051
+03/17/2023 02:11:56 - INFO - __main__ -     eval_TP = 444
+03/17/2023 02:11:56 - INFO - __main__ -     eval_FP = 336
+03/17/2023 02:11:56 - INFO - __main__ -     eval_TN = 1209
+03/17/2023 02:11:56 - INFO - __main__ -     eval_FN = 743
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:11:58 - INFO - __main__ -   epoch 8 loss 0.64774
+03/17/2023 02:18:51 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:18:51 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:18:51 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:19:49 - INFO - __main__ -     eval_loss = 0.637
+03/17/2023 02:19:49 - INFO - __main__ -     eval_acc = 0.6248
+03/17/2023 02:19:49 - INFO - __main__ -     eval_TP = 645
+03/17/2023 02:19:49 - INFO - __main__ -     eval_FP = 483
+03/17/2023 02:19:49 - INFO - __main__ -     eval_TN = 1062
+03/17/2023 02:19:49 - INFO - __main__ -     eval_FN = 542
+03/17/2023 02:19:49 - INFO - __main__ -     ********************
+03/17/2023 02:19:49 - INFO - __main__ -     Best acc:0.6248
+03/17/2023 02:19:49 - INFO - __main__ -     ********************
+03/17/2023 02:19:50 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:19:52 - INFO - __main__ -   epoch 9 loss 0.63966
+03/17/2023 02:26:46 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:26:46 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:26:46 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:27:45 - INFO - __main__ -     eval_loss = 0.6431
+03/17/2023 02:27:45 - INFO - __main__ -     eval_acc = 0.6109
+03/17/2023 02:27:45 - INFO - __main__ -     eval_TP = 883
+03/17/2023 02:27:45 - INFO - __main__ -     eval_FP = 759
+03/17/2023 02:27:45 - INFO - __main__ -     eval_TN = 786
+03/17/2023 02:27:45 - INFO - __main__ -     eval_FN = 304
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:27:47 - INFO - __main__ -   epoch 10 loss 0.62708
+03/17/2023 02:34:48 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:34:48 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:34:48 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:35:46 - INFO - __main__ -     eval_loss = 0.6335
+03/17/2023 02:35:46 - INFO - __main__ -     eval_acc = 0.6281
+03/17/2023 02:35:46 - INFO - __main__ -     eval_TP = 701
+03/17/2023 02:35:46 - INFO - __main__ -     eval_FP = 530
+03/17/2023 02:35:46 - INFO - __main__ -     eval_TN = 1015
+03/17/2023 02:35:46 - INFO - __main__ -     eval_FN = 486
+03/17/2023 02:35:46 - INFO - __main__ -     ********************
+03/17/2023 02:35:46 - INFO - __main__ -     Best acc:0.6281
+03/17/2023 02:35:46 - INFO - __main__ -     ********************
+03/17/2023 02:35:48 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:35:50 - INFO - __main__ -   epoch 11 loss 0.61931
+03/17/2023 02:42:50 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:42:50 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:42:50 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:43:48 - INFO - __main__ -     eval_loss = 0.6305
+03/17/2023 02:43:48 - INFO - __main__ -     eval_acc = 0.6321
+03/17/2023 02:43:48 - INFO - __main__ -     eval_TP = 694
+03/17/2023 02:43:48 - INFO - __main__ -     eval_FP = 512
+03/17/2023 02:43:48 - INFO - __main__ -     eval_TN = 1033
+03/17/2023 02:43:48 - INFO - __main__ -     eval_FN = 493
+03/17/2023 02:43:48 - INFO - __main__ -     ********************
+03/17/2023 02:43:48 - INFO - __main__ -     Best acc:0.6321
+03/17/2023 02:43:48 - INFO - __main__ -     ********************
+03/17/2023 02:43:49 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:43:51 - INFO - __main__ -   epoch 12 loss 0.60561
+03/17/2023 02:50:49 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:50:49 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:50:49 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:51:47 - INFO - __main__ -     eval_loss = 0.6374
+03/17/2023 02:51:47 - INFO - __main__ -     eval_acc = 0.6325
+03/17/2023 02:51:47 - INFO - __main__ -     eval_TP = 666
+03/17/2023 02:51:47 - INFO - __main__ -     eval_FP = 483
+03/17/2023 02:51:47 - INFO - __main__ -     eval_TN = 1062
+03/17/2023 02:51:47 - INFO - __main__ -     eval_FN = 521
+03/17/2023 02:51:47 - INFO - __main__ -     ********************
+03/17/2023 02:51:47 - INFO - __main__ -     Best acc:0.6325
+03/17/2023 02:51:47 - INFO - __main__ -     ********************
+03/17/2023 02:51:48 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:51:50 - INFO - __main__ -   epoch 13 loss 0.60314
+03/17/2023 02:58:47 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 02:58:47 - INFO - __main__ -     Num examples = 2732
+03/17/2023 02:58:47 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:59:46 - INFO - __main__ -     eval_loss = 0.6254
+03/17/2023 02:59:46 - INFO - __main__ -     eval_acc = 0.6318
+03/17/2023 02:59:46 - INFO - __main__ -     eval_TP = 651
+03/17/2023 02:59:46 - INFO - __main__ -     eval_FP = 470
+03/17/2023 02:59:46 - INFO - __main__ -     eval_TN = 1075
+03/17/2023 02:59:46 - INFO - __main__ -     eval_FN = 536
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 02:59:47 - INFO - __main__ -   epoch 14 loss 0.59077
+03/17/2023 03:06:45 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 03:06:45 - INFO - __main__ -     Num examples = 2732
+03/17/2023 03:06:45 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:07:43 - INFO - __main__ -     eval_loss = 0.631
+03/17/2023 03:07:43 - INFO - __main__ -     eval_acc = 0.6307
+03/17/2023 03:07:43 - INFO - __main__ -     eval_TP = 608
+03/17/2023 03:07:43 - INFO - __main__ -     eval_FP = 430
+03/17/2023 03:07:43 - INFO - __main__ -     eval_TN = 1115
+03/17/2023 03:07:43 - INFO - __main__ -     eval_FN = 579
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:07:45 - INFO - __main__ -   epoch 15 loss 0.58289
+03/17/2023 03:14:49 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 03:14:49 - INFO - __main__ -     Num examples = 2732
+03/17/2023 03:14:49 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:15:47 - INFO - __main__ -     eval_loss = 0.6767
+03/17/2023 03:15:47 - INFO - __main__ -     eval_acc = 0.6343
+03/17/2023 03:15:47 - INFO - __main__ -     eval_TP = 345
+03/17/2023 03:15:47 - INFO - __main__ -     eval_FP = 157
+03/17/2023 03:15:47 - INFO - __main__ -     eval_TN = 1388
+03/17/2023 03:15:47 - INFO - __main__ -     eval_FN = 842
+03/17/2023 03:15:47 - INFO - __main__ -     ********************
+03/17/2023 03:15:47 - INFO - __main__ -     Best acc:0.6343
+03/17/2023 03:15:47 - INFO - __main__ -     ********************
+03/17/2023 03:15:48 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:15:49 - INFO - __main__ -   epoch 16 loss 0.57009
+03/17/2023 03:22:49 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 03:22:49 - INFO - __main__ -     Num examples = 2732
+03/17/2023 03:22:49 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:23:47 - INFO - __main__ -     eval_loss = 0.6462
+03/17/2023 03:23:47 - INFO - __main__ -     eval_acc = 0.6325
+03/17/2023 03:23:47 - INFO - __main__ -     eval_TP = 648
+03/17/2023 03:23:47 - INFO - __main__ -     eval_FP = 465
+03/17/2023 03:23:47 - INFO - __main__ -     eval_TN = 1080
+03/17/2023 03:23:47 - INFO - __main__ -     eval_FN = 539
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:23:49 - INFO - __main__ -   epoch 17 loss 0.56149
+03/17/2023 03:30:48 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 03:30:48 - INFO - __main__ -     Num examples = 2732
+03/17/2023 03:30:48 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:31:46 - INFO - __main__ -     eval_loss = 0.6285
+03/17/2023 03:31:46 - INFO - __main__ -     eval_acc = 0.6215
+03/17/2023 03:31:46 - INFO - __main__ -     eval_TP = 603
+03/17/2023 03:31:46 - INFO - __main__ -     eval_FP = 450
+03/17/2023 03:31:46 - INFO - __main__ -     eval_TN = 1095
+03/17/2023 03:31:46 - INFO - __main__ -     eval_FN = 584
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:31:48 - INFO - __main__ -   epoch 18 loss 0.5488
+03/17/2023 03:38:44 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 03:38:44 - INFO - __main__ -     Num examples = 2732
+03/17/2023 03:38:44 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:39:43 - INFO - __main__ -     eval_loss = 0.6538
+03/17/2023 03:39:43 - INFO - __main__ -     eval_acc = 0.6201
+03/17/2023 03:39:43 - INFO - __main__ -     eval_TP = 753
+03/17/2023 03:39:43 - INFO - __main__ -     eval_FP = 604
+03/17/2023 03:39:43 - INFO - __main__ -     eval_TN = 941
+03/17/2023 03:39:43 - INFO - __main__ -     eval_FN = 434
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:39:44 - INFO - __main__ -   epoch 19 loss 0.542
+03/17/2023 03:46:42 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 03:46:42 - INFO - __main__ -     Num examples = 2732
+03/17/2023 03:46:42 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:47:40 - INFO - __main__ -     eval_loss = 0.6389
+03/17/2023 03:47:40 - INFO - __main__ -     eval_acc = 0.6358
+03/17/2023 03:47:40 - INFO - __main__ -     eval_TP = 600
+03/17/2023 03:47:40 - INFO - __main__ -     eval_FP = 408
+03/17/2023 03:47:40 - INFO - __main__ -     eval_TN = 1137
+03/17/2023 03:47:40 - INFO - __main__ -     eval_FN = 587
+03/17/2023 03:47:40 - INFO - __main__ -     ********************
+03/17/2023 03:47:40 - INFO - __main__ -     Best acc:0.6358
+03/17/2023 03:47:40 - INFO - __main__ -     ********************
+03/17/2023 03:47:41 - INFO - __main__ -   Saving model checkpoint to ./saved_models/regcn_l2_hs128_uni_ws5_lr5e4_V3\checkpoint-best-acc\model.bin
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:47:43 - INFO - __main__ -   epoch 20 loss 0.53159
+03/17/2023 03:54:40 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 03:54:40 - INFO - __main__ -     Num examples = 2732
+03/17/2023 03:54:40 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:55:38 - INFO - __main__ -     eval_loss = 0.6498
+03/17/2023 03:55:38 - INFO - __main__ -     eval_acc = 0.6263
+03/17/2023 03:55:38 - INFO - __main__ -     eval_TP = 695
+03/17/2023 03:55:38 - INFO - __main__ -     eval_FP = 529
+03/17/2023 03:55:38 - INFO - __main__ -     eval_TN = 1016
+03/17/2023 03:55:38 - INFO - __main__ -     eval_FN = 492
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 03:55:40 - INFO - __main__ -   epoch 21 loss 0.52174
+03/17/2023 04:02:38 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:02:38 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:02:38 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:03:37 - INFO - __main__ -     eval_loss = 0.7245
+03/17/2023 04:03:37 - INFO - __main__ -     eval_acc = 0.6263
+03/17/2023 04:03:37 - INFO - __main__ -     eval_TP = 743
+03/17/2023 04:03:37 - INFO - __main__ -     eval_FP = 577
+03/17/2023 04:03:37 - INFO - __main__ -     eval_TN = 968
+03/17/2023 04:03:37 - INFO - __main__ -     eval_FN = 444
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:03:39 - INFO - __main__ -   epoch 22 loss 0.51508
+03/17/2023 04:10:39 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:10:39 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:10:39 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:11:37 - INFO - __main__ -     eval_loss = 0.682
+03/17/2023 04:11:37 - INFO - __main__ -     eval_acc = 0.6259
+03/17/2023 04:11:37 - INFO - __main__ -     eval_TP = 755
+03/17/2023 04:11:37 - INFO - __main__ -     eval_FP = 590
+03/17/2023 04:11:37 - INFO - __main__ -     eval_TN = 955
+03/17/2023 04:11:37 - INFO - __main__ -     eval_FN = 432
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:11:39 - INFO - __main__ -   epoch 23 loss 0.50732
+03/17/2023 04:18:39 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:18:39 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:18:39 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:19:37 - INFO - __main__ -     eval_loss = 0.6715
+03/17/2023 04:19:37 - INFO - __main__ -     eval_acc = 0.6358
+03/17/2023 04:19:37 - INFO - __main__ -     eval_TP = 428
+03/17/2023 04:19:37 - INFO - __main__ -     eval_FP = 236
+03/17/2023 04:19:37 - INFO - __main__ -     eval_TN = 1309
+03/17/2023 04:19:37 - INFO - __main__ -     eval_FN = 759
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:19:39 - INFO - __main__ -   epoch 24 loss 0.49991
+03/17/2023 04:26:38 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:26:38 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:26:38 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:27:37 - INFO - __main__ -     eval_loss = 0.6735
+03/17/2023 04:27:37 - INFO - __main__ -     eval_acc = 0.6281
+03/17/2023 04:27:37 - INFO - __main__ -     eval_TP = 535
+03/17/2023 04:27:37 - INFO - __main__ -     eval_FP = 364
+03/17/2023 04:27:37 - INFO - __main__ -     eval_TN = 1181
+03/17/2023 04:27:37 - INFO - __main__ -     eval_FN = 652
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:27:38 - INFO - __main__ -   epoch 25 loss 0.49101
+03/17/2023 04:34:39 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:34:39 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:34:39 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:35:37 - INFO - __main__ -     eval_loss = 0.7121
+03/17/2023 04:35:37 - INFO - __main__ -     eval_acc = 0.6274
+03/17/2023 04:35:37 - INFO - __main__ -     eval_TP = 648
+03/17/2023 04:35:37 - INFO - __main__ -     eval_FP = 479
+03/17/2023 04:35:37 - INFO - __main__ -     eval_TN = 1066
+03/17/2023 04:35:37 - INFO - __main__ -     eval_FN = 539
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:35:39 - INFO - __main__ -   epoch 26 loss 0.48532
+03/17/2023 04:42:39 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:42:39 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:42:39 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:43:38 - INFO - __main__ -     eval_loss = 0.685
+03/17/2023 04:43:38 - INFO - __main__ -     eval_acc = 0.616
+03/17/2023 04:43:38 - INFO - __main__ -     eval_TP = 642
+03/17/2023 04:43:38 - INFO - __main__ -     eval_FP = 504
+03/17/2023 04:43:38 - INFO - __main__ -     eval_TN = 1041
+03/17/2023 04:43:38 - INFO - __main__ -     eval_FN = 545
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:43:40 - INFO - __main__ -   epoch 27 loss 0.47403
+03/17/2023 04:50:42 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:50:42 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:50:42 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:51:40 - INFO - __main__ -     eval_loss = 0.6969
+03/17/2023 04:51:40 - INFO - __main__ -     eval_acc = 0.6204
+03/17/2023 04:51:40 - INFO - __main__ -     eval_TP = 664
+03/17/2023 04:51:40 - INFO - __main__ -     eval_FP = 514
+03/17/2023 04:51:40 - INFO - __main__ -     eval_TN = 1031
+03/17/2023 04:51:40 - INFO - __main__ -     eval_FN = 523
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:51:42 - INFO - __main__ -   epoch 28 loss 0.46659
+03/17/2023 04:58:42 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 04:58:42 - INFO - __main__ -     Num examples = 2732
+03/17/2023 04:58:42 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:59:40 - INFO - __main__ -     eval_loss = 0.7252
+03/17/2023 04:59:40 - INFO - __main__ -     eval_acc = 0.6274
+03/17/2023 04:59:40 - INFO - __main__ -     eval_TP = 709
+03/17/2023 04:59:40 - INFO - __main__ -     eval_FP = 540
+03/17/2023 04:59:40 - INFO - __main__ -     eval_TN = 1005
+03/17/2023 04:59:40 - INFO - __main__ -     eval_FN = 478
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 04:59:42 - INFO - __main__ -   epoch 29 loss 0.45449
+03/17/2023 05:06:43 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 05:06:43 - INFO - __main__ -     Num examples = 2732
+03/17/2023 05:06:43 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:07:41 - INFO - __main__ -     eval_loss = 0.7305
+03/17/2023 05:07:41 - INFO - __main__ -     eval_acc = 0.6318
+03/17/2023 05:07:41 - INFO - __main__ -     eval_TP = 513
+03/17/2023 05:07:41 - INFO - __main__ -     eval_FP = 332
+03/17/2023 05:07:41 - INFO - __main__ -     eval_TN = 1213
+03/17/2023 05:07:41 - INFO - __main__ -     eval_FN = 674
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:07:43 - INFO - __main__ -   epoch 30 loss 0.45267
+03/17/2023 05:14:47 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 05:14:47 - INFO - __main__ -     Num examples = 2732
+03/17/2023 05:14:47 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:15:46 - INFO - __main__ -     eval_loss = 0.7379
+03/17/2023 05:15:46 - INFO - __main__ -     eval_acc = 0.6164
+03/17/2023 05:15:46 - INFO - __main__ -     eval_TP = 672
+03/17/2023 05:15:46 - INFO - __main__ -     eval_FP = 533
+03/17/2023 05:15:46 - INFO - __main__ -     eval_TN = 1012
+03/17/2023 05:15:46 - INFO - __main__ -     eval_FN = 515
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:15:48 - INFO - __main__ -   epoch 31 loss 0.44568
+03/17/2023 05:22:49 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 05:22:49 - INFO - __main__ -     Num examples = 2732
+03/17/2023 05:22:49 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:23:48 - INFO - __main__ -     eval_loss = 0.7735
+03/17/2023 05:23:48 - INFO - __main__ -     eval_acc = 0.6153
+03/17/2023 05:23:48 - INFO - __main__ -     eval_TP = 656
+03/17/2023 05:23:48 - INFO - __main__ -     eval_FP = 520
+03/17/2023 05:23:48 - INFO - __main__ -     eval_TN = 1025
+03/17/2023 05:23:48 - INFO - __main__ -     eval_FN = 531
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:23:49 - INFO - __main__ -   epoch 32 loss 0.43904
+03/17/2023 05:30:56 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 05:30:56 - INFO - __main__ -     Num examples = 2732
+03/17/2023 05:30:56 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:31:54 - INFO - __main__ -     eval_loss = 0.7565
+03/17/2023 05:31:54 - INFO - __main__ -     eval_acc = 0.608
+03/17/2023 05:31:54 - INFO - __main__ -     eval_TP = 811
+03/17/2023 05:31:54 - INFO - __main__ -     eval_FP = 695
+03/17/2023 05:31:54 - INFO - __main__ -     eval_TN = 850
+03/17/2023 05:31:54 - INFO - __main__ -     eval_FN = 376
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:31:56 - INFO - __main__ -   epoch 33 loss 0.4309
+03/17/2023 05:38:59 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 05:38:59 - INFO - __main__ -     Num examples = 2732
+03/17/2023 05:38:59 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:39:57 - INFO - __main__ -     eval_loss = 0.7507
+03/17/2023 05:39:57 - INFO - __main__ -     eval_acc = 0.6193
+03/17/2023 05:39:57 - INFO - __main__ -     eval_TP = 562
+03/17/2023 05:39:57 - INFO - __main__ -     eval_FP = 415
+03/17/2023 05:39:57 - INFO - __main__ -     eval_TN = 1130
+03/17/2023 05:39:57 - INFO - __main__ -     eval_FN = 625
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:39:59 - INFO - __main__ -   epoch 34 loss 0.42599
+03/17/2023 05:47:00 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 05:47:00 - INFO - __main__ -     Num examples = 2732
+03/17/2023 05:47:00 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:47:59 - INFO - __main__ -     eval_loss = 0.7925
+03/17/2023 05:47:59 - INFO - __main__ -     eval_acc = 0.6296
+03/17/2023 05:47:59 - INFO - __main__ -     eval_TP = 601
+03/17/2023 05:47:59 - INFO - __main__ -     eval_FP = 426
+03/17/2023 05:47:59 - INFO - __main__ -     eval_TN = 1119
+03/17/2023 05:47:59 - INFO - __main__ -     eval_FN = 586
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:48:01 - INFO - __main__ -   epoch 35 loss 0.4141
+03/17/2023 05:55:08 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 05:55:08 - INFO - __main__ -     Num examples = 2732
+03/17/2023 05:55:08 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:56:06 - INFO - __main__ -     eval_loss = 0.8122
+03/17/2023 05:56:06 - INFO - __main__ -     eval_acc = 0.6029
+03/17/2023 05:56:06 - INFO - __main__ -     eval_TP = 775
+03/17/2023 05:56:06 - INFO - __main__ -     eval_FP = 673
+03/17/2023 05:56:06 - INFO - __main__ -     eval_TN = 872
+03/17/2023 05:56:06 - INFO - __main__ -     eval_FN = 412
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 05:56:08 - INFO - __main__ -   epoch 36 loss 0.41243
+03/17/2023 06:03:14 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 06:03:14 - INFO - __main__ -     Num examples = 2732
+03/17/2023 06:03:14 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:04:13 - INFO - __main__ -     eval_loss = 0.7542
+03/17/2023 06:04:13 - INFO - __main__ -     eval_acc = 0.6285
+03/17/2023 06:04:13 - INFO - __main__ -     eval_TP = 582
+03/17/2023 06:04:13 - INFO - __main__ -     eval_FP = 410
+03/17/2023 06:04:13 - INFO - __main__ -     eval_TN = 1135
+03/17/2023 06:04:13 - INFO - __main__ -     eval_FN = 605
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:04:14 - INFO - __main__ -   epoch 37 loss 0.40706
+03/17/2023 06:11:26 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 06:11:26 - INFO - __main__ -     Num examples = 2732
+03/17/2023 06:11:26 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:12:25 - INFO - __main__ -     eval_loss = 0.7879
+03/17/2023 06:12:25 - INFO - __main__ -     eval_acc = 0.6237
+03/17/2023 06:12:25 - INFO - __main__ -     eval_TP = 659
+03/17/2023 06:12:25 - INFO - __main__ -     eval_FP = 500
+03/17/2023 06:12:25 - INFO - __main__ -     eval_TN = 1045
+03/17/2023 06:12:25 - INFO - __main__ -     eval_FN = 528
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:12:26 - INFO - __main__ -   epoch 38 loss 0.39692
+03/17/2023 06:19:33 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 06:19:33 - INFO - __main__ -     Num examples = 2732
+03/17/2023 06:19:33 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:20:32 - INFO - __main__ -     eval_loss = 0.8422
+03/17/2023 06:20:32 - INFO - __main__ -     eval_acc = 0.612
+03/17/2023 06:20:32 - INFO - __main__ -     eval_TP = 657
+03/17/2023 06:20:32 - INFO - __main__ -     eval_FP = 530
+03/17/2023 06:20:32 - INFO - __main__ -     eval_TN = 1015
+03/17/2023 06:20:32 - INFO - __main__ -     eval_FN = 530
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:20:34 - INFO - __main__ -   epoch 39 loss 0.39706
+03/17/2023 06:27:46 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 06:27:46 - INFO - __main__ -     Num examples = 2732
+03/17/2023 06:27:46 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:28:44 - INFO - __main__ -     eval_loss = 0.9207
+03/17/2023 06:28:44 - INFO - __main__ -     eval_acc = 0.5758
+03/17/2023 06:28:44 - INFO - __main__ -     eval_TP = 995
+03/17/2023 06:28:44 - INFO - __main__ -     eval_FP = 967
+03/17/2023 06:28:44 - INFO - __main__ -     eval_TN = 578
+03/17/2023 06:28:44 - INFO - __main__ -     eval_FN = 192
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:28:46 - INFO - __main__ -   epoch 40 loss 0.39549
+03/17/2023 06:35:53 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 06:35:53 - INFO - __main__ -     Num examples = 2732
+03/17/2023 06:35:53 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:36:52 - INFO - __main__ -     eval_loss = 0.7784
+03/17/2023 06:36:52 - INFO - __main__ -     eval_acc = 0.6091
+03/17/2023 06:36:52 - INFO - __main__ -     eval_TP = 758
+03/17/2023 06:36:52 - INFO - __main__ -     eval_FP = 639
+03/17/2023 06:36:52 - INFO - __main__ -     eval_TN = 906
+03/17/2023 06:36:52 - INFO - __main__ -     eval_FN = 429
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:36:53 - INFO - __main__ -   epoch 41 loss 0.39014
+03/17/2023 06:43:58 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 06:43:58 - INFO - __main__ -     Num examples = 2732
+03/17/2023 06:43:58 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:44:57 - INFO - __main__ -     eval_loss = 0.8222
+03/17/2023 06:44:57 - INFO - __main__ -     eval_acc = 0.6215
+03/17/2023 06:44:57 - INFO - __main__ -     eval_TP = 679
+03/17/2023 06:44:57 - INFO - __main__ -     eval_FP = 526
+03/17/2023 06:44:57 - INFO - __main__ -     eval_TN = 1019
+03/17/2023 06:44:57 - INFO - __main__ -     eval_FN = 508
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:44:59 - INFO - __main__ -   epoch 42 loss 0.38822
+03/17/2023 06:52:03 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 06:52:03 - INFO - __main__ -     Num examples = 2732
+03/17/2023 06:52:03 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:53:02 - INFO - __main__ -     eval_loss = 0.8266
+03/17/2023 06:53:02 - INFO - __main__ -     eval_acc = 0.6226
+03/17/2023 06:53:02 - INFO - __main__ -     eval_TP = 685
+03/17/2023 06:53:02 - INFO - __main__ -     eval_FP = 529
+03/17/2023 06:53:02 - INFO - __main__ -     eval_TN = 1016
+03/17/2023 06:53:02 - INFO - __main__ -     eval_FN = 502
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 06:53:04 - INFO - __main__ -   epoch 43 loss 0.37965
+03/17/2023 07:00:15 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:00:15 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:00:15 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:01:14 - INFO - __main__ -     eval_loss = 0.8643
+03/17/2023 07:01:14 - INFO - __main__ -     eval_acc = 0.6083
+03/17/2023 07:01:14 - INFO - __main__ -     eval_TP = 739
+03/17/2023 07:01:14 - INFO - __main__ -     eval_FP = 622
+03/17/2023 07:01:14 - INFO - __main__ -     eval_TN = 923
+03/17/2023 07:01:14 - INFO - __main__ -     eval_FN = 448
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:01:16 - INFO - __main__ -   epoch 44 loss 0.37416
+03/17/2023 07:08:22 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:08:22 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:08:22 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:09:20 - INFO - __main__ -     eval_loss = 0.8364
+03/17/2023 07:09:20 - INFO - __main__ -     eval_acc = 0.6014
+03/17/2023 07:09:20 - INFO - __main__ -     eval_TP = 703
+03/17/2023 07:09:20 - INFO - __main__ -     eval_FP = 605
+03/17/2023 07:09:20 - INFO - __main__ -     eval_TN = 940
+03/17/2023 07:09:20 - INFO - __main__ -     eval_FN = 484
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:09:22 - INFO - __main__ -   epoch 45 loss 0.3702
+03/17/2023 07:16:31 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:16:31 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:16:31 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:17:30 - INFO - __main__ -     eval_loss = 0.8335
+03/17/2023 07:17:30 - INFO - __main__ -     eval_acc = 0.5955
+03/17/2023 07:17:30 - INFO - __main__ -     eval_TP = 780
+03/17/2023 07:17:30 - INFO - __main__ -     eval_FP = 698
+03/17/2023 07:17:30 - INFO - __main__ -     eval_TN = 847
+03/17/2023 07:17:30 - INFO - __main__ -     eval_FN = 407
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:17:32 - INFO - __main__ -   epoch 46 loss 0.36674
+03/17/2023 07:24:36 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:24:36 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:24:36 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:25:35 - INFO - __main__ -     eval_loss = 0.9289
+03/17/2023 07:25:35 - INFO - __main__ -     eval_acc = 0.6043
+03/17/2023 07:25:35 - INFO - __main__ -     eval_TP = 746
+03/17/2023 07:25:35 - INFO - __main__ -     eval_FP = 640
+03/17/2023 07:25:35 - INFO - __main__ -     eval_TN = 905
+03/17/2023 07:25:35 - INFO - __main__ -     eval_FN = 441
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:25:37 - INFO - __main__ -   epoch 47 loss 0.35881
+03/17/2023 07:32:41 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:32:41 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:32:41 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:33:39 - INFO - __main__ -     eval_loss = 0.8883
+03/17/2023 07:33:39 - INFO - __main__ -     eval_acc = 0.6036
+03/17/2023 07:33:39 - INFO - __main__ -     eval_TP = 757
+03/17/2023 07:33:39 - INFO - __main__ -     eval_FP = 653
+03/17/2023 07:33:39 - INFO - __main__ -     eval_TN = 892
+03/17/2023 07:33:39 - INFO - __main__ -     eval_FN = 430
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:33:41 - INFO - __main__ -   epoch 48 loss 0.35196
+03/17/2023 07:40:48 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:40:48 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:40:48 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:41:47 - INFO - __main__ -     eval_loss = 0.9392
+03/17/2023 07:41:47 - INFO - __main__ -     eval_acc = 0.6014
+03/17/2023 07:41:47 - INFO - __main__ -     eval_TP = 784
+03/17/2023 07:41:47 - INFO - __main__ -     eval_FP = 686
+03/17/2023 07:41:47 - INFO - __main__ -     eval_TN = 859
+03/17/2023 07:41:47 - INFO - __main__ -     eval_FN = 403
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:41:49 - INFO - __main__ -   epoch 49 loss 0.35002
+03/17/2023 07:48:52 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:48:52 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:48:52 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:49:50 - INFO - __main__ -     eval_loss = 0.929
+03/17/2023 07:49:50 - INFO - __main__ -     eval_acc = 0.6043
+03/17/2023 07:49:50 - INFO - __main__ -     eval_TP = 794
+03/17/2023 07:49:50 - INFO - __main__ -     eval_FP = 688
+03/17/2023 07:49:50 - INFO - __main__ -     eval_TN = 857
+03/17/2023 07:49:50 - INFO - __main__ -     eval_FN = 393
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:49:52 - INFO - __main__ -   epoch 50 loss 0.34925
+03/17/2023 07:57:02 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 07:57:02 - INFO - __main__ -     Num examples = 2732
+03/17/2023 07:57:02 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:58:01 - INFO - __main__ -     eval_loss = 0.9757
+03/17/2023 07:58:01 - INFO - __main__ -     eval_acc = 0.5908
+03/17/2023 07:58:01 - INFO - __main__ -     eval_TP = 870
+03/17/2023 07:58:01 - INFO - __main__ -     eval_FP = 801
+03/17/2023 07:58:01 - INFO - __main__ -     eval_TN = 744
+03/17/2023 07:58:01 - INFO - __main__ -     eval_FN = 317
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 07:58:03 - INFO - __main__ -   epoch 51 loss 0.3506
+03/17/2023 08:05:10 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 08:05:10 - INFO - __main__ -     Num examples = 2732
+03/17/2023 08:05:10 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:06:09 - INFO - __main__ -     eval_loss = 0.9407
+03/17/2023 08:06:09 - INFO - __main__ -     eval_acc = 0.6223
+03/17/2023 08:06:09 - INFO - __main__ -     eval_TP = 594
+03/17/2023 08:06:09 - INFO - __main__ -     eval_FP = 439
+03/17/2023 08:06:09 - INFO - __main__ -     eval_TN = 1106
+03/17/2023 08:06:09 - INFO - __main__ -     eval_FN = 593
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:06:11 - INFO - __main__ -   epoch 52 loss 0.33872
+03/17/2023 08:13:23 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 08:13:23 - INFO - __main__ -     Num examples = 2732
+03/17/2023 08:13:23 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:14:21 - INFO - __main__ -     eval_loss = 0.9619
+03/17/2023 08:14:21 - INFO - __main__ -     eval_acc = 0.6036
+03/17/2023 08:14:21 - INFO - __main__ -     eval_TP = 747
+03/17/2023 08:14:21 - INFO - __main__ -     eval_FP = 643
+03/17/2023 08:14:21 - INFO - __main__ -     eval_TN = 902
+03/17/2023 08:14:21 - INFO - __main__ -     eval_FN = 440
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:14:23 - INFO - __main__ -   epoch 53 loss 0.33783
+03/17/2023 08:21:32 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 08:21:32 - INFO - __main__ -     Num examples = 2732
+03/17/2023 08:21:32 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:22:30 - INFO - __main__ -     eval_loss = 0.9313
+03/17/2023 08:22:30 - INFO - __main__ -     eval_acc = 0.6146
+03/17/2023 08:22:30 - INFO - __main__ -     eval_TP = 680
+03/17/2023 08:22:30 - INFO - __main__ -     eval_FP = 546
+03/17/2023 08:22:30 - INFO - __main__ -     eval_TN = 999
+03/17/2023 08:22:30 - INFO - __main__ -     eval_FN = 507
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:22:32 - INFO - __main__ -   epoch 54 loss 0.33313
+03/17/2023 08:29:42 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 08:29:42 - INFO - __main__ -     Num examples = 2732
+03/17/2023 08:29:42 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:30:40 - INFO - __main__ -     eval_loss = 0.9919
+03/17/2023 08:30:40 - INFO - __main__ -     eval_acc = 0.5977
+03/17/2023 08:30:40 - INFO - __main__ -     eval_TP = 835
+03/17/2023 08:30:40 - INFO - __main__ -     eval_FP = 747
+03/17/2023 08:30:40 - INFO - __main__ -     eval_TN = 798
+03/17/2023 08:30:40 - INFO - __main__ -     eval_FN = 352
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:30:42 - INFO - __main__ -   epoch 55 loss 0.32648
+03/17/2023 08:37:57 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 08:37:57 - INFO - __main__ -     Num examples = 2732
+03/17/2023 08:37:57 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:38:55 - INFO - __main__ -     eval_loss = 1.0092
+03/17/2023 08:38:55 - INFO - __main__ -     eval_acc = 0.6072
+03/17/2023 08:38:55 - INFO - __main__ -     eval_TP = 656
+03/17/2023 08:38:55 - INFO - __main__ -     eval_FP = 542
+03/17/2023 08:38:55 - INFO - __main__ -     eval_TN = 1003
+03/17/2023 08:38:55 - INFO - __main__ -     eval_FN = 531
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:38:57 - INFO - __main__ -   epoch 56 loss 0.32532
+03/17/2023 08:46:09 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 08:46:09 - INFO - __main__ -     Num examples = 2732
+03/17/2023 08:46:09 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:47:07 - INFO - __main__ -     eval_loss = 0.981
+03/17/2023 08:47:07 - INFO - __main__ -     eval_acc = 0.6098
+03/17/2023 08:47:07 - INFO - __main__ -     eval_TP = 643
+03/17/2023 08:47:07 - INFO - __main__ -     eval_FP = 522
+03/17/2023 08:47:07 - INFO - __main__ -     eval_TN = 1023
+03/17/2023 08:47:07 - INFO - __main__ -     eval_FN = 544
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:47:09 - INFO - __main__ -   epoch 57 loss 0.32483
+03/17/2023 08:54:18 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 08:54:18 - INFO - __main__ -     Num examples = 2732
+03/17/2023 08:54:18 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:55:17 - INFO - __main__ -     eval_loss = 0.9519
+03/17/2023 08:55:17 - INFO - __main__ -     eval_acc = 0.6142
+03/17/2023 08:55:17 - INFO - __main__ -     eval_TP = 657
+03/17/2023 08:55:17 - INFO - __main__ -     eval_FP = 524
+03/17/2023 08:55:17 - INFO - __main__ -     eval_TN = 1021
+03/17/2023 08:55:17 - INFO - __main__ -     eval_FN = 530
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 08:55:19 - INFO - __main__ -   epoch 58 loss 0.32067
+03/17/2023 09:02:33 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 09:02:33 - INFO - __main__ -     Num examples = 2732
+03/17/2023 09:02:33 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:03:31 - INFO - __main__ -     eval_loss = 0.9718
+03/17/2023 09:03:31 - INFO - __main__ -     eval_acc = 0.6127
+03/17/2023 09:03:31 - INFO - __main__ -     eval_TP = 624
+03/17/2023 09:03:31 - INFO - __main__ -     eval_FP = 495
+03/17/2023 09:03:31 - INFO - __main__ -     eval_TN = 1050
+03/17/2023 09:03:31 - INFO - __main__ -     eval_FN = 563
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:03:33 - INFO - __main__ -   epoch 59 loss 0.31418
+03/17/2023 09:10:45 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 09:10:45 - INFO - __main__ -     Num examples = 2732
+03/17/2023 09:10:45 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:11:43 - INFO - __main__ -     eval_loss = 0.9632
+03/17/2023 09:11:43 - INFO - __main__ -     eval_acc = 0.5952
+03/17/2023 09:11:43 - INFO - __main__ -     eval_TP = 751
+03/17/2023 09:11:43 - INFO - __main__ -     eval_FP = 670
+03/17/2023 09:11:43 - INFO - __main__ -     eval_TN = 875
+03/17/2023 09:11:43 - INFO - __main__ -     eval_FN = 436
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:11:45 - INFO - __main__ -   epoch 60 loss 0.3067
+03/17/2023 09:18:56 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 09:18:56 - INFO - __main__ -     Num examples = 2732
+03/17/2023 09:18:56 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:19:55 - INFO - __main__ -     eval_loss = 1.0067
+03/17/2023 09:19:55 - INFO - __main__ -     eval_acc = 0.6179
+03/17/2023 09:19:55 - INFO - __main__ -     eval_TP = 610
+03/17/2023 09:19:55 - INFO - __main__ -     eval_FP = 467
+03/17/2023 09:19:55 - INFO - __main__ -     eval_TN = 1078
+03/17/2023 09:19:55 - INFO - __main__ -     eval_FN = 577
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:19:56 - INFO - __main__ -   epoch 61 loss 0.3045
+03/17/2023 09:27:09 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 09:27:09 - INFO - __main__ -     Num examples = 2732
+03/17/2023 09:27:09 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:28:07 - INFO - __main__ -     eval_loss = 1.0078
+03/17/2023 09:28:07 - INFO - __main__ -     eval_acc = 0.6069
+03/17/2023 09:28:07 - INFO - __main__ -     eval_TP = 652
+03/17/2023 09:28:07 - INFO - __main__ -     eval_FP = 539
+03/17/2023 09:28:07 - INFO - __main__ -     eval_TN = 1006
+03/17/2023 09:28:07 - INFO - __main__ -     eval_FN = 535
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:28:09 - INFO - __main__ -   epoch 62 loss 0.3023
+03/17/2023 09:35:23 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 09:35:23 - INFO - __main__ -     Num examples = 2732
+03/17/2023 09:35:23 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:36:22 - INFO - __main__ -     eval_loss = 1.0683
+03/17/2023 09:36:22 - INFO - __main__ -     eval_acc = 0.6069
+03/17/2023 09:36:22 - INFO - __main__ -     eval_TP = 650
+03/17/2023 09:36:22 - INFO - __main__ -     eval_FP = 537
+03/17/2023 09:36:22 - INFO - __main__ -     eval_TN = 1008
+03/17/2023 09:36:22 - INFO - __main__ -     eval_FN = 537
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:36:23 - INFO - __main__ -   epoch 63 loss 0.30144
+03/17/2023 09:43:40 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 09:43:40 - INFO - __main__ -     Num examples = 2732
+03/17/2023 09:43:40 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:44:39 - INFO - __main__ -     eval_loss = 1.0519
+03/17/2023 09:44:39 - INFO - __main__ -     eval_acc = 0.5948
+03/17/2023 09:44:39 - INFO - __main__ -     eval_TP = 764
+03/17/2023 09:44:39 - INFO - __main__ -     eval_FP = 684
+03/17/2023 09:44:39 - INFO - __main__ -     eval_TN = 861
+03/17/2023 09:44:39 - INFO - __main__ -     eval_FN = 423
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:44:40 - INFO - __main__ -   epoch 64 loss 0.29823
+03/17/2023 09:51:52 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 09:51:52 - INFO - __main__ -     Num examples = 2732
+03/17/2023 09:51:52 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:52:51 - INFO - __main__ -     eval_loss = 1.1473
+03/17/2023 09:52:51 - INFO - __main__ -     eval_acc = 0.6098
+03/17/2023 09:52:51 - INFO - __main__ -     eval_TP = 693
+03/17/2023 09:52:51 - INFO - __main__ -     eval_FP = 572
+03/17/2023 09:52:51 - INFO - __main__ -     eval_TN = 973
+03/17/2023 09:52:51 - INFO - __main__ -     eval_FN = 494
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 09:52:53 - INFO - __main__ -   epoch 65 loss 0.29961
+03/17/2023 10:00:09 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:00:09 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:00:09 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:01:08 - INFO - __main__ -     eval_loss = 1.0314
+03/17/2023 10:01:08 - INFO - __main__ -     eval_acc = 0.6113
+03/17/2023 10:01:08 - INFO - __main__ -     eval_TP = 650
+03/17/2023 10:01:08 - INFO - __main__ -     eval_FP = 525
+03/17/2023 10:01:08 - INFO - __main__ -     eval_TN = 1020
+03/17/2023 10:01:08 - INFO - __main__ -     eval_FN = 537
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:01:10 - INFO - __main__ -   epoch 66 loss 0.29466
+03/17/2023 10:08:22 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:08:22 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:08:22 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:09:20 - INFO - __main__ -     eval_loss = 1.0523
+03/17/2023 10:09:20 - INFO - __main__ -     eval_acc = 0.6036
+03/17/2023 10:09:20 - INFO - __main__ -     eval_TP = 608
+03/17/2023 10:09:20 - INFO - __main__ -     eval_FP = 504
+03/17/2023 10:09:20 - INFO - __main__ -     eval_TN = 1041
+03/17/2023 10:09:20 - INFO - __main__ -     eval_FN = 579
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:09:22 - INFO - __main__ -   epoch 67 loss 0.29009
+03/17/2023 10:16:34 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:16:34 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:16:34 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:17:32 - INFO - __main__ -     eval_loss = 1.0676
+03/17/2023 10:17:32 - INFO - __main__ -     eval_acc = 0.5926
+03/17/2023 10:17:32 - INFO - __main__ -     eval_TP = 723
+03/17/2023 10:17:32 - INFO - __main__ -     eval_FP = 649
+03/17/2023 10:17:32 - INFO - __main__ -     eval_TN = 896
+03/17/2023 10:17:32 - INFO - __main__ -     eval_FN = 464
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:17:34 - INFO - __main__ -   epoch 68 loss 0.292
+03/17/2023 10:24:52 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:24:52 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:24:52 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:25:52 - INFO - __main__ -     eval_loss = 1.0342
+03/17/2023 10:25:52 - INFO - __main__ -     eval_acc = 0.6043
+03/17/2023 10:25:52 - INFO - __main__ -     eval_TP = 628
+03/17/2023 10:25:52 - INFO - __main__ -     eval_FP = 522
+03/17/2023 10:25:52 - INFO - __main__ -     eval_TN = 1023
+03/17/2023 10:25:52 - INFO - __main__ -     eval_FN = 559
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:25:54 - INFO - __main__ -   epoch 69 loss 0.28712
+03/17/2023 10:33:16 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:33:16 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:33:16 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:34:15 - INFO - __main__ -     eval_loss = 1.1401
+03/17/2023 10:34:15 - INFO - __main__ -     eval_acc = 0.5937
+03/17/2023 10:34:15 - INFO - __main__ -     eval_TP = 818
+03/17/2023 10:34:15 - INFO - __main__ -     eval_FP = 741
+03/17/2023 10:34:15 - INFO - __main__ -     eval_TN = 804
+03/17/2023 10:34:15 - INFO - __main__ -     eval_FN = 369
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:34:16 - INFO - __main__ -   epoch 70 loss 0.28397
+03/17/2023 10:41:31 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:41:31 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:41:31 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:42:30 - INFO - __main__ -     eval_loss = 1.0949
+03/17/2023 10:42:30 - INFO - __main__ -     eval_acc = 0.6018
+03/17/2023 10:42:30 - INFO - __main__ -     eval_TP = 685
+03/17/2023 10:42:30 - INFO - __main__ -     eval_FP = 586
+03/17/2023 10:42:30 - INFO - __main__ -     eval_TN = 959
+03/17/2023 10:42:30 - INFO - __main__ -     eval_FN = 502
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:42:32 - INFO - __main__ -   epoch 71 loss 0.28059
+03/17/2023 10:49:48 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:49:48 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:49:48 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:50:46 - INFO - __main__ -     eval_loss = 1.0313
+03/17/2023 10:50:46 - INFO - __main__ -     eval_acc = 0.5937
+03/17/2023 10:50:46 - INFO - __main__ -     eval_TP = 651
+03/17/2023 10:50:46 - INFO - __main__ -     eval_FP = 574
+03/17/2023 10:50:46 - INFO - __main__ -     eval_TN = 971
+03/17/2023 10:50:46 - INFO - __main__ -     eval_FN = 536
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:50:48 - INFO - __main__ -   epoch 72 loss 0.27801
+03/17/2023 10:58:03 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 10:58:03 - INFO - __main__ -     Num examples = 2732
+03/17/2023 10:58:03 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:59:02 - INFO - __main__ -     eval_loss = 1.1277
+03/17/2023 10:59:02 - INFO - __main__ -     eval_acc = 0.5955
+03/17/2023 10:59:02 - INFO - __main__ -     eval_TP = 757
+03/17/2023 10:59:02 - INFO - __main__ -     eval_FP = 675
+03/17/2023 10:59:02 - INFO - __main__ -     eval_TN = 870
+03/17/2023 10:59:02 - INFO - __main__ -     eval_FN = 430
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 10:59:03 - INFO - __main__ -   epoch 73 loss 0.28077
+03/17/2023 11:06:21 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 11:06:21 - INFO - __main__ -     Num examples = 2732
+03/17/2023 11:06:21 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:07:19 - INFO - __main__ -     eval_loss = 1.1729
+03/17/2023 11:07:19 - INFO - __main__ -     eval_acc = 0.5926
+03/17/2023 11:07:19 - INFO - __main__ -     eval_TP = 754
+03/17/2023 11:07:19 - INFO - __main__ -     eval_FP = 680
+03/17/2023 11:07:19 - INFO - __main__ -     eval_TN = 865
+03/17/2023 11:07:19 - INFO - __main__ -     eval_FN = 433
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:07:21 - INFO - __main__ -   epoch 74 loss 0.27081
+03/17/2023 11:14:36 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 11:14:36 - INFO - __main__ -     Num examples = 2732
+03/17/2023 11:14:36 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:15:35 - INFO - __main__ -     eval_loss = 1.1974
+03/17/2023 11:15:35 - INFO - __main__ -     eval_acc = 0.593
+03/17/2023 11:15:35 - INFO - __main__ -     eval_TP = 762
+03/17/2023 11:15:35 - INFO - __main__ -     eval_FP = 687
+03/17/2023 11:15:35 - INFO - __main__ -     eval_TN = 858
+03/17/2023 11:15:35 - INFO - __main__ -     eval_FN = 425
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:15:36 - INFO - __main__ -   epoch 75 loss 0.2697
+03/17/2023 11:22:54 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 11:22:54 - INFO - __main__ -     Num examples = 2732
+03/17/2023 11:22:54 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:23:53 - INFO - __main__ -     eval_loss = 1.1979
+03/17/2023 11:23:53 - INFO - __main__ -     eval_acc = 0.5919
+03/17/2023 11:23:53 - INFO - __main__ -     eval_TP = 721
+03/17/2023 11:23:53 - INFO - __main__ -     eval_FP = 649
+03/17/2023 11:23:53 - INFO - __main__ -     eval_TN = 896
+03/17/2023 11:23:53 - INFO - __main__ -     eval_FN = 466
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:23:54 - INFO - __main__ -   epoch 76 loss 0.26955
+03/17/2023 11:31:09 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 11:31:09 - INFO - __main__ -     Num examples = 2732
+03/17/2023 11:31:09 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:32:07 - INFO - __main__ -     eval_loss = 1.1683
+03/17/2023 11:32:07 - INFO - __main__ -     eval_acc = 0.5944
+03/17/2023 11:32:07 - INFO - __main__ -     eval_TP = 641
+03/17/2023 11:32:07 - INFO - __main__ -     eval_FP = 562
+03/17/2023 11:32:07 - INFO - __main__ -     eval_TN = 983
+03/17/2023 11:32:07 - INFO - __main__ -     eval_FN = 546
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:32:09 - INFO - __main__ -   epoch 77 loss 0.2664
+03/17/2023 11:39:26 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 11:39:26 - INFO - __main__ -     Num examples = 2732
+03/17/2023 11:39:26 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:40:25 - INFO - __main__ -     eval_loss = 1.1841
+03/17/2023 11:40:25 - INFO - __main__ -     eval_acc = 0.5933
+03/17/2023 11:40:25 - INFO - __main__ -     eval_TP = 702
+03/17/2023 11:40:25 - INFO - __main__ -     eval_FP = 626
+03/17/2023 11:40:25 - INFO - __main__ -     eval_TN = 919
+03/17/2023 11:40:25 - INFO - __main__ -     eval_FN = 485
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:40:27 - INFO - __main__ -   epoch 78 loss 0.26632
+03/17/2023 11:47:52 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 11:47:52 - INFO - __main__ -     Num examples = 2732
+03/17/2023 11:47:52 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:48:52 - INFO - __main__ -     eval_loss = 1.1491
+03/17/2023 11:48:52 - INFO - __main__ -     eval_acc = 0.5933
+03/17/2023 11:48:52 - INFO - __main__ -     eval_TP = 694
+03/17/2023 11:48:52 - INFO - __main__ -     eval_FP = 618
+03/17/2023 11:48:52 - INFO - __main__ -     eval_TN = 927
+03/17/2023 11:48:52 - INFO - __main__ -     eval_FN = 493
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:48:54 - INFO - __main__ -   epoch 79 loss 0.25944
+03/17/2023 11:56:13 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 11:56:13 - INFO - __main__ -     Num examples = 2732
+03/17/2023 11:56:13 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:57:12 - INFO - __main__ -     eval_loss = 1.2
+03/17/2023 11:57:12 - INFO - __main__ -     eval_acc = 0.6043
+03/17/2023 11:57:12 - INFO - __main__ -     eval_TP = 615
+03/17/2023 11:57:12 - INFO - __main__ -     eval_FP = 509
+03/17/2023 11:57:12 - INFO - __main__ -     eval_TN = 1036
+03/17/2023 11:57:12 - INFO - __main__ -     eval_FN = 572
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 11:57:14 - INFO - __main__ -   epoch 80 loss 0.26082
+03/17/2023 12:04:30 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 12:04:30 - INFO - __main__ -     Num examples = 2732
+03/17/2023 12:04:30 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:05:29 - INFO - __main__ -     eval_loss = 1.224
+03/17/2023 12:05:29 - INFO - __main__ -     eval_acc = 0.6058
+03/17/2023 12:05:29 - INFO - __main__ -     eval_TP = 630
+03/17/2023 12:05:29 - INFO - __main__ -     eval_FP = 520
+03/17/2023 12:05:29 - INFO - __main__ -     eval_TN = 1025
+03/17/2023 12:05:29 - INFO - __main__ -     eval_FN = 557
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:05:31 - INFO - __main__ -   epoch 81 loss 0.25617
+03/17/2023 12:12:46 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 12:12:46 - INFO - __main__ -     Num examples = 2732
+03/17/2023 12:12:46 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:13:44 - INFO - __main__ -     eval_loss = 1.1874
+03/17/2023 12:13:44 - INFO - __main__ -     eval_acc = 0.5985
+03/17/2023 12:13:44 - INFO - __main__ -     eval_TP = 737
+03/17/2023 12:13:44 - INFO - __main__ -     eval_FP = 647
+03/17/2023 12:13:44 - INFO - __main__ -     eval_TN = 898
+03/17/2023 12:13:44 - INFO - __main__ -     eval_FN = 450
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:13:46 - INFO - __main__ -   epoch 82 loss 0.2597
+03/17/2023 12:21:01 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 12:21:01 - INFO - __main__ -     Num examples = 2732
+03/17/2023 12:21:01 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:22:00 - INFO - __main__ -     eval_loss = 1.1965
+03/17/2023 12:22:00 - INFO - __main__ -     eval_acc = 0.597
+03/17/2023 12:22:00 - INFO - __main__ -     eval_TP = 702
+03/17/2023 12:22:00 - INFO - __main__ -     eval_FP = 616
+03/17/2023 12:22:00 - INFO - __main__ -     eval_TN = 929
+03/17/2023 12:22:00 - INFO - __main__ -     eval_FN = 485
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:22:01 - INFO - __main__ -   epoch 83 loss 0.25145
+03/17/2023 12:29:15 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 12:29:15 - INFO - __main__ -     Num examples = 2732
+03/17/2023 12:29:15 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:30:14 - INFO - __main__ -     eval_loss = 1.2579
+03/17/2023 12:30:14 - INFO - __main__ -     eval_acc = 0.6007
+03/17/2023 12:30:14 - INFO - __main__ -     eval_TP = 613
+03/17/2023 12:30:14 - INFO - __main__ -     eval_FP = 517
+03/17/2023 12:30:14 - INFO - __main__ -     eval_TN = 1028
+03/17/2023 12:30:14 - INFO - __main__ -     eval_FN = 574
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:30:15 - INFO - __main__ -   epoch 84 loss 0.24831
+03/17/2023 12:37:33 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 12:37:33 - INFO - __main__ -     Num examples = 2732
+03/17/2023 12:37:33 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:38:35 - INFO - __main__ -     eval_loss = 1.1881
+03/17/2023 12:38:35 - INFO - __main__ -     eval_acc = 0.5955
+03/17/2023 12:38:35 - INFO - __main__ -     eval_TP = 630
+03/17/2023 12:38:35 - INFO - __main__ -     eval_FP = 548
+03/17/2023 12:38:35 - INFO - __main__ -     eval_TN = 997
+03/17/2023 12:38:35 - INFO - __main__ -     eval_FN = 557
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:38:36 - INFO - __main__ -   epoch 85 loss 0.25483
+03/17/2023 12:45:50 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 12:45:50 - INFO - __main__ -     Num examples = 2732
+03/17/2023 12:45:50 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:46:48 - INFO - __main__ -     eval_loss = 1.2221
+03/17/2023 12:46:48 - INFO - __main__ -     eval_acc = 0.5977
+03/17/2023 12:46:48 - INFO - __main__ -     eval_TP = 678
+03/17/2023 12:46:48 - INFO - __main__ -     eval_FP = 590
+03/17/2023 12:46:48 - INFO - __main__ -     eval_TN = 955
+03/17/2023 12:46:48 - INFO - __main__ -     eval_FN = 509
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:46:50 - INFO - __main__ -   epoch 86 loss 0.2514
+03/17/2023 12:54:05 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 12:54:05 - INFO - __main__ -     Num examples = 2732
+03/17/2023 12:54:05 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:55:04 - INFO - __main__ -     eval_loss = 1.2506
+03/17/2023 12:55:04 - INFO - __main__ -     eval_acc = 0.597
+03/17/2023 12:55:04 - INFO - __main__ -     eval_TP = 654
+03/17/2023 12:55:04 - INFO - __main__ -     eval_FP = 568
+03/17/2023 12:55:04 - INFO - __main__ -     eval_TN = 977
+03/17/2023 12:55:04 - INFO - __main__ -     eval_FN = 533
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 12:55:06 - INFO - __main__ -   epoch 87 loss 0.24133
+03/17/2023 13:02:20 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 13:02:20 - INFO - __main__ -     Num examples = 2732
+03/17/2023 13:02:20 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:03:19 - INFO - __main__ -     eval_loss = 1.2549
+03/17/2023 13:03:19 - INFO - __main__ -     eval_acc = 0.5933
+03/17/2023 13:03:19 - INFO - __main__ -     eval_TP = 643
+03/17/2023 13:03:19 - INFO - __main__ -     eval_FP = 567
+03/17/2023 13:03:19 - INFO - __main__ -     eval_TN = 978
+03/17/2023 13:03:19 - INFO - __main__ -     eval_FN = 544
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:03:20 - INFO - __main__ -   epoch 88 loss 0.24452
+03/17/2023 13:10:36 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 13:10:36 - INFO - __main__ -     Num examples = 2732
+03/17/2023 13:10:36 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:11:34 - INFO - __main__ -     eval_loss = 1.2491
+03/17/2023 13:11:34 - INFO - __main__ -     eval_acc = 0.604
+03/17/2023 13:11:34 - INFO - __main__ -     eval_TP = 631
+03/17/2023 13:11:34 - INFO - __main__ -     eval_FP = 526
+03/17/2023 13:11:34 - INFO - __main__ -     eval_TN = 1019
+03/17/2023 13:11:34 - INFO - __main__ -     eval_FN = 556
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:11:36 - INFO - __main__ -   epoch 89 loss 0.23903
+03/17/2023 13:19:01 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 13:19:01 - INFO - __main__ -     Num examples = 2732
+03/17/2023 13:19:01 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:20:00 - INFO - __main__ -     eval_loss = 1.2977
+03/17/2023 13:20:00 - INFO - __main__ -     eval_acc = 0.5911
+03/17/2023 13:20:00 - INFO - __main__ -     eval_TP = 693
+03/17/2023 13:20:00 - INFO - __main__ -     eval_FP = 623
+03/17/2023 13:20:00 - INFO - __main__ -     eval_TN = 922
+03/17/2023 13:20:00 - INFO - __main__ -     eval_FN = 494
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:20:01 - INFO - __main__ -   epoch 90 loss 0.24217
+03/17/2023 13:27:27 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 13:27:27 - INFO - __main__ -     Num examples = 2732
+03/17/2023 13:27:27 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:28:31 - INFO - __main__ -     eval_loss = 1.239
+03/17/2023 13:28:31 - INFO - __main__ -     eval_acc = 0.597
+03/17/2023 13:28:31 - INFO - __main__ -     eval_TP = 657
+03/17/2023 13:28:31 - INFO - __main__ -     eval_FP = 571
+03/17/2023 13:28:31 - INFO - __main__ -     eval_TN = 974
+03/17/2023 13:28:31 - INFO - __main__ -     eval_FN = 530
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:28:33 - INFO - __main__ -   epoch 91 loss 0.23812
+03/17/2023 13:36:05 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 13:36:05 - INFO - __main__ -     Num examples = 2732
+03/17/2023 13:36:05 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:37:03 - INFO - __main__ -     eval_loss = 1.2761
+03/17/2023 13:37:03 - INFO - __main__ -     eval_acc = 0.593
+03/17/2023 13:37:03 - INFO - __main__ -     eval_TP = 718
+03/17/2023 13:37:03 - INFO - __main__ -     eval_FP = 643
+03/17/2023 13:37:03 - INFO - __main__ -     eval_TN = 902
+03/17/2023 13:37:03 - INFO - __main__ -     eval_FN = 469
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:37:05 - INFO - __main__ -   epoch 92 loss 0.23808
+03/17/2023 13:44:20 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 13:44:20 - INFO - __main__ -     Num examples = 2732
+03/17/2023 13:44:20 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:45:19 - INFO - __main__ -     eval_loss = 1.2846
+03/17/2023 13:45:19 - INFO - __main__ -     eval_acc = 0.597
+03/17/2023 13:45:19 - INFO - __main__ -     eval_TP = 652
+03/17/2023 13:45:19 - INFO - __main__ -     eval_FP = 566
+03/17/2023 13:45:19 - INFO - __main__ -     eval_TN = 979
+03/17/2023 13:45:19 - INFO - __main__ -     eval_FN = 535
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:45:21 - INFO - __main__ -   epoch 93 loss 0.23174
+03/17/2023 13:52:34 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 13:52:34 - INFO - __main__ -     Num examples = 2732
+03/17/2023 13:52:34 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:53:33 - INFO - __main__ -     eval_loss = 1.2695
+03/17/2023 13:53:33 - INFO - __main__ -     eval_acc = 0.5944
+03/17/2023 13:53:33 - INFO - __main__ -     eval_TP = 692
+03/17/2023 13:53:33 - INFO - __main__ -     eval_FP = 613
+03/17/2023 13:53:33 - INFO - __main__ -     eval_TN = 932
+03/17/2023 13:53:33 - INFO - __main__ -     eval_FN = 495
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 13:53:35 - INFO - __main__ -   epoch 94 loss 0.23576
+03/17/2023 14:00:49 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 14:00:49 - INFO - __main__ -     Num examples = 2732
+03/17/2023 14:00:49 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:01:48 - INFO - __main__ -     eval_loss = 1.3061
+03/17/2023 14:01:48 - INFO - __main__ -     eval_acc = 0.593
+03/17/2023 14:01:48 - INFO - __main__ -     eval_TP = 683
+03/17/2023 14:01:48 - INFO - __main__ -     eval_FP = 608
+03/17/2023 14:01:48 - INFO - __main__ -     eval_TN = 937
+03/17/2023 14:01:48 - INFO - __main__ -     eval_FN = 504
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:01:49 - INFO - __main__ -   epoch 95 loss 0.22993
+03/17/2023 14:09:04 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 14:09:04 - INFO - __main__ -     Num examples = 2732
+03/17/2023 14:09:04 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:10:02 - INFO - __main__ -     eval_loss = 1.3092
+03/17/2023 14:10:02 - INFO - __main__ -     eval_acc = 0.5926
+03/17/2023 14:10:02 - INFO - __main__ -     eval_TP = 661
+03/17/2023 14:10:02 - INFO - __main__ -     eval_FP = 587
+03/17/2023 14:10:02 - INFO - __main__ -     eval_TN = 958
+03/17/2023 14:10:02 - INFO - __main__ -     eval_FN = 526
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:10:04 - INFO - __main__ -   epoch 96 loss 0.23113
+03/17/2023 14:17:19 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 14:17:19 - INFO - __main__ -     Num examples = 2732
+03/17/2023 14:17:19 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:18:18 - INFO - __main__ -     eval_loss = 1.298
+03/17/2023 14:18:18 - INFO - __main__ -     eval_acc = 0.5952
+03/17/2023 14:18:18 - INFO - __main__ -     eval_TP = 684
+03/17/2023 14:18:18 - INFO - __main__ -     eval_FP = 603
+03/17/2023 14:18:18 - INFO - __main__ -     eval_TN = 942
+03/17/2023 14:18:18 - INFO - __main__ -     eval_FN = 503
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:18:20 - INFO - __main__ -   epoch 97 loss 0.2302
+03/17/2023 14:25:37 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 14:25:37 - INFO - __main__ -     Num examples = 2732
+03/17/2023 14:25:37 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:26:35 - INFO - __main__ -     eval_loss = 1.3006
+03/17/2023 14:26:35 - INFO - __main__ -     eval_acc = 0.5948
+03/17/2023 14:26:35 - INFO - __main__ -     eval_TP = 653
+03/17/2023 14:26:35 - INFO - __main__ -     eval_FP = 573
+03/17/2023 14:26:35 - INFO - __main__ -     eval_TN = 972
+03/17/2023 14:26:35 - INFO - __main__ -     eval_FN = 534
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:26:37 - INFO - __main__ -   epoch 98 loss 0.2263
+03/17/2023 14:33:52 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 14:33:52 - INFO - __main__ -     Num examples = 2732
+03/17/2023 14:33:52 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:34:50 - INFO - __main__ -     eval_loss = 1.309
+03/17/2023 14:34:50 - INFO - __main__ -     eval_acc = 0.5944
+03/17/2023 14:34:50 - INFO - __main__ -     eval_TP = 669
+03/17/2023 14:34:50 - INFO - __main__ -     eval_FP = 590
+03/17/2023 14:34:50 - INFO - __main__ -     eval_TN = 955
+03/17/2023 14:34:50 - INFO - __main__ -     eval_FN = 518
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:34:52 - INFO - __main__ -   epoch 99 loss 0.22512
+03/17/2023 14:34:58 - INFO - __main__ -   ***** Running evaluation *****
+03/17/2023 14:34:58 - INFO - __main__ -     Num examples = 2732
+03/17/2023 14:34:58 - INFO - __main__ -     Batch size = 128
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+using default unweighted graph
+03/17/2023 14:35:56 - INFO - __main__ -   ***** Eval results *****
+03/17/2023 14:35:56 - INFO - __main__ -     eval_FN = 587
+03/17/2023 14:35:56 - INFO - __main__ -     eval_FP = 408
+03/17/2023 14:35:56 - INFO - __main__ -     eval_TN = 1137
+03/17/2023 14:35:56 - INFO - __main__ -     eval_TP = 600
+03/17/2023 14:35:56 - INFO - __main__ -     eval_acc = 0.6358
+03/17/2023 14:35:56 - INFO - __main__ -     eval_loss = 0.6389
+03/17/2023 14:36:02 - INFO - __main__ -   ***** Running Test *****
+03/17/2023 14:36:02 - INFO - __main__ -     Num examples = 2732
+03/17/2023 14:36:02 - INFO - __main__ -     Batch size = 128
+03/17/2023 14:36:34 - INFO - __main__ -   ***** Test results *****
+03/17/2023 14:36:34 - INFO - __main__ -     test_acc = 0.6047
+using default unweighted graph
